@@ -7,10 +7,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
       background: #f9f9f9;
+      background-size: cover;
       color: #333;
       display: flex;
       flex-direction: column;
@@ -93,11 +91,53 @@
       font-size: 1.1rem;
       color: #444;
     }
-  </style>
+      @media (max-width: 600px) {
+      header, footer, section {
+        padding: 1rem;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+      h2 {
+        font-size: 1.25rem;
+      }
+      .cta a, .button-link {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.95rem;
+      }
+      .slide p {
+        font-size: 1rem;
+      }
+      .bonus-list, .faq-list {
+        padding: 0.75rem;
+      }
+      ul {
+        padding-left: 0;
+      }
+      ul li {
+        font-size: 0.95rem;
+      }
+      .slider-container {
+        flex-direction: column;
+      }
+    }
+      .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+</style>
 </head>
 <body>
   <header>
-    <h1>Are You Ready to Take the NEXTEP in Your Career?</h1>
+    <h1>Kickstart your freelancing journey.</h1>
     <p>Transforming people into businesses</p>
     <div style="background: #fff; margin-top: 2rem; padding: 2rem; border-radius: 12px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; text-align: center;">
   <div style="border: 2px solid #ccc; background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); font-weight: bold; color: #c2185b;">Worked in 10+ niches</div>
@@ -115,7 +155,7 @@
     </div>
   </header>
 
-  <section>
+  <section class="fade-in">
   <h2>Is your answer a ‘yes’ to any of the questions below?</h2>
   <ul style="list-style: none; padding: 0;">
     <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem;">
@@ -203,6 +243,30 @@
   </div>
 </section>
 
+<section>
+  <h2>Meet Your Mentors</h2>
+  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
+    <div style="flex: 1; min-width: 240px; text-align: left;">
+      <p style="font-size: 1.5rem; font-weight: 700; color: #222; margin-bottom: 0.5rem;">🚀 Hey Nextepers, we are <span style='color: #d63384;'>Gaurav</span> & <span style='color: #d63384;'>Deeksaya</span>!</p>
+      <p style="font-size: 1.1rem; color: #444; margin-bottom: 1rem;">Together, we've spent the last 5+ years building businesses, mentoring freelancers, and delivering results.</p>
+      <div style="font-size: 1rem; color: #333; line-height: 1.7;">
+  <p>We’ve worked with clients in over 10 different niches. It helped us truly understand how to position any service, no matter the industry.</p>
+  <p>Last year alone, we supported 30+ clients and helped them create lead generation systems that actually work — consistently.</p>
+  <p>We’ve worked with founders from 5+ countries. This gave us insights into how to attract international clients with the right messaging.</p>
+  <p>One of our favorite wins? Helping a client hit $10k/month using simple, clear systems that required no tech overwhelm.</p>
+  <p>We also built a Facebook page with over 600k followers — that’s where we mastered how content builds trust at scale.</p>
+  <p>And more than anything, we're proud of our students — over 50 of them are now making ₹1L/month using what we teach inside this program.</p>
+</div>
+    </div>
+    <div style="flex: 1; min-width: 200px; text-align: center;">
+      <img src="https://media.licdn.com/dms/image/v2/D5603AQFGOOrjEQ7OvQ/profile-displayphoto-shrink_800_800/B56ZYz7VEXGcAk-/0/1744627914339?e=1750896000&v=beta&t=gCRNLshEUh3CoiEZkZGck7JLTRCFWPvs46pGS687S24" alt="Gaurav" style="max-width: 160px; border-radius: 12px; margin: 0.5rem;" />
+      <img src="https://media.licdn.com/dms/image/v2/D5603AQF5ikKcCppRWA/profile-displayphoto-shrink_800_800/B56ZYHPU0UGsAc-/0/1743878181265?e=1750896000&v=beta&t=6wwR_b8UI_okYj73vniP9FU5p0EcrpDONXjAqmR3AhI" alt="Deeksaya" style="max-width: 160px; border-radius: 12px; margin: 0.5rem;" />
+    </div>
+  </div>
+  
+  
+</section>
+
 <section class="testimonials">
   <h2>Success Stories</h2>
   <div class="slider-container" id="slider">
@@ -252,6 +316,12 @@
     setInterval(() => {
       nextSlide();
     }, 4000);
-  </script>
+    document.querySelectorAll('.fade-in').forEach((el, index) => {
+    setTimeout(() => {
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    }, index * 300);
+  });
+</script>
 </body>
 </html>
